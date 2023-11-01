@@ -1,0 +1,17 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend/  # Ruta al directorio donde se encuentra el Dockerfile del backend Django
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app  # Monta el código fuente del backend en el contenedor
+
+  frontend:
+    build:
+      context: ./frontend  # Ruta al directorio donde se encuentra el Dockerfile del frontend React
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app  # Monta el código fuente del frontend en el contenedor
